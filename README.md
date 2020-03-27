@@ -1,16 +1,9 @@
 https://stackoverflow.com/questions/35245247/writing-my-own-init-executable
-
-
+https://stackoverflow.com/questions/10437995/initramfs-built-into-custom-linux-kernel-is-not-running
 
 CONFIG_INITRAMFS_SOURCE=../rootfs.cpio.gz
 
-CONFIG_CMDLINE_BOOL=y
-CONFIG_CMDLINE=root=sr0
-
-
-
 https://stackoverflow.com/questions/24583614/want-to-build-bare-linux-system-that-has-only-a-kernel-and-one-binary
-
 
 sudo mount /dev/sdc1 /mnt/
 sudo mkfs.fat -F32 /dev/sdc1
@@ -18,8 +11,8 @@ sudo fdisk /dev/sdc
 sudo fdisk -l
 
 
-mkdir -p /mnt/EFI/boot
-cp arch/x86/boot/bzImage /mnt/EFI/boot/bootx64.efi
+sudo mkdir -p /mnt/EFI/boot
+sudo cp linux/arch/x86/boot/bzImage /mnt/EFI/boot/bootx64.efi
 
 
 blkid | grep sdc
