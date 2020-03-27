@@ -1,3 +1,6 @@
+https://stackoverflow.com/questions/35245247/writing-my-own-init-executable
+
+
 
 CONFIG_INITRAMFS_SOURCE=../rootfs.cpio.gz
 
@@ -28,14 +31,6 @@ https://www.rodsbooks.com/efi-bootloaders/efistub.html
 
 
 
-#include <stdio.h>
-#include <unistd.h>
-
-int main() {
-    printf("FOOBAR FOOBAR FOOBAR FOOBAR FOOBAR FOOBAR FOOBAR\n");
-    sleep(0xFFFFFFFF);
-    return 0;
-}
 
 
 
@@ -45,7 +40,6 @@ int main() {
 
 
 gcc -static init.c -o init
-
 
 make isoimage FDINITRD="$ROOTFS_PATH"
 sudo dd if=arch/x86/boot/image.iso of=/dev/sdX

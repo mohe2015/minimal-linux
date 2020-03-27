@@ -1,7 +1,8 @@
 all: program2 kernel
 
 program2:
-	mkdir -p d
+	mkdir -p d/dev
+	cd d/dev && sudo mknod -m 622 console c 5 1 && sudo mknod -m 622 tty0 c 4 0
 	gcc -static init.c -o d/init
 	cd d  && find . | cpio -o -H newc | gzip > ../rootfs.cpio.gz
 	ROOTFS_PATH="$(pwd)/rootfs.cpio.gz"
