@@ -1,4 +1,10 @@
-all: program kernel
+all: program2 kernel
+
+program2:
+	mkdir -p d
+	gcc -static init.c -o d/init
+	cd d  && find . | cpio -o -H newc | gzip > ../rootfs.cpio.gz
+	ROOTFS_PATH="$(pwd)/rootfs.cpio.gz"
 
 program:
 	mkdir -p d
@@ -10,6 +16,6 @@ program:
 kernel:
 	git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git || true
 	#cd linux && make mrproper
-	cd linux && make defconfig
+	#cd linux && make defconfig
 	cd linux && make -j8
-	qemu-system-x86_64 -kernel arch/x86/boot/bzImage # -initrd "$ROOTFS_PATH"
+	qemu-system-x86_64 -serial stdio -append "console=ttyS0" -kernel linux/arch/x86/boot/bzImage # -initrd "$ROOTFS_PATH"
