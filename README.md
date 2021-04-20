@@ -5,9 +5,9 @@ nix develop .#devShell.test
 
 git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
 cd linux
-make ARCH=arm64 tinyconfig #defconfig # only first time
-
-make ARCH=arm64
+make ARCH=arm64 CROSS_COMPILE=aarch64-unknown-linux-gnu- tinyconfig #defconfig # only first time
+make ARCH=arm64 CROSS_COMPILE=aarch64-unknown-linux-gnu- gconfig
+make ARCH=arm64 CROSS_COMPILE=aarch64-unknown-linux-gnu-
 
 
 https://stackoverflow.com/questions/35245247/writing-my-own-init-executable

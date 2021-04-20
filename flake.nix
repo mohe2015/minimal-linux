@@ -29,13 +29,12 @@
         crossSystem = "aarch64-linux";
       };
     in {
-      test = pkgs.mkShell {
-        nativeBuildInputs = [ pkgs.gcc pkgs.pkg-config pkgs.flex pkgs.bison self.packages.test ];
+      test = crossPkgs.mkShell {
+        nativeBuildInputs = [ pkgs.gcc pkgs.pkg-config pkgs.flex pkgs.bison ];
         buildInputs = [ pkgs.gtk2 pkgs.gnome2.libglade ];
 
         shellHook = ''
           cd linux
-          make ARCH=arm64 gconfig
         '';
       };
     };
