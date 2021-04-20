@@ -29,8 +29,8 @@
         crossSystem = "aarch64-linux";
       };
     in {
-      test = crossPkgs.mkShell.override {stdenv = pkgs.clang10Stdenv;} {
-        nativeBuildInputs = [ crossPkgs.lld_10 /*crossPkgs.llvmPackages_10.bintools*/ pkgs.pkg-config pkgs.flex pkgs.bison pkgs.bc ];
+      test = crossPkgs.mkShell.override {stdenv = pkgs.clang11Stdenv;} {
+        nativeBuildInputs = [ /*crossPkgs.lld_11*/ crossPkgs.llvmPackages_11.bintools pkgs.pkg-config pkgs.flex pkgs.bison pkgs.bc ];
         buildInputs = [ pkgs.gtk2 pkgs.gnome2.libglade pkgs.ncurses ];
 
         shellHook = ''

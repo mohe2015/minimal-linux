@@ -11,10 +11,10 @@ make ARCH=arm64 CROSS_COMPILE=aarch64-unknown-linux-gnu- menuconfig
 make ARCH=arm64 CROSS_COMPILE=aarch64-unknown-linux-gnu- -j16
 ls -lh arch/arm64/boot/Image
 
-make ARCH=arm64 LLVM=1 CROSS_COMPILE= CC=clang tinyconfig #defconfig # only first time
-make ARCH=arm64 LLVM=1 CROSS_COMPILE= CC=clang gconfig
-make ARCH=arm64 LLVM=1 CROSS_COMPILE= CC=clang menuconfig
-make ARCH=arm64 LLVM=1 CROSS_COMPILE= CC=clang -j16
+make ARCH=arm64 LLVM=1 LLVM_IAS=1 CROSS_COMPILE= CC=clang tinyconfig #defconfig # only first time
+make ARCH=arm64 LLVM=1 LLVM_IAS=1 CROSS_COMPILE= CC=clang gconfig
+make ARCH=arm64 LLVM=1 LLVM_IAS=1 CROSS_COMPILE= CC=clang menuconfig
+make ARCH=arm64 LLVM=1 LLVM_IAS=1 CROSS_COMPILE= CC=clang -j16
 
 # https://kernel.googlesource.com/pub/scm/linux/kernel/git/mmarek/kbuild/+/lto/Documentation/lto-build
 
