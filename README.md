@@ -14,7 +14,15 @@ cd ..
 make program
 https://rosettacode.org/wiki/Category:AArch64_Assembly
 
-qemu-system-aarch64 -machine raspi3b -serial stdio -append "console=ttyS0" -kernel linux/arch/arm64/boot/Image -initrd test
+https://github.com/qemu/qemu/blob/master/util/log.c
+
+https://github.com/s-matyukevich/raspberry-pi-os/issues/8
+
+TODO
+CONFIG_INITRAMFS_SOURCE=../rootfs.cpio.gz
+
+
+qemu-system-aarch64 -D log -d cpu -machine type=raspi3b -serial stdio -kernel linux/arch/arm64/boot/Image -initrd rootfs.cpio.gz
 
 # https://kernel.googlesource.com/pub/scm/linux/kernel/git/mmarek/kbuild/+/lto/Documentation/lto-build
 

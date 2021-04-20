@@ -8,7 +8,8 @@ program2:
 	ROOTFS_PATH="$(pwd)/rootfs.cpio.gz"
 
 program:
-	mkdir -p d
+	mkdir -p d/dev
+	cd d/dev && sudo mknod -m 622 console c 5 1 && sudo mknod -m 622 tty0 c 4 0
 	aarch64-unknown-linux-gnu-as -o /tmp/init.o init.S
 	aarch64-unknown-linux-gnu-ld -o d/init /tmp/init.o
 	cd d && find . | cpio -o -H newc | gzip > ../rootfs.cpio.gz

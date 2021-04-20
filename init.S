@@ -14,7 +14,7 @@ _start:
 	mov x29, sp
 	svc #0 // write(stdout, msg, 13);
 	ldp x29, x30, [sp], 16
-	mov x0, #0
+	mov x0, #5 // test set to #0
 	mov x8, #SVC_EXIT
 	svc #0 // exit(0);
  
