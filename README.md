@@ -10,6 +10,11 @@ make ARCH=arm64 CROSS_COMPILE=aarch64-unknown-linux-gnu- gconfig
 make ARCH=arm64 CROSS_COMPILE=aarch64-unknown-linux-gnu- menuconfig
 make ARCH=arm64 CROSS_COMPILE=aarch64-unknown-linux-gnu- -j16
 ls -lh arch/arm64/boot/Image
+cd ..
+make program
+https://rosettacode.org/wiki/Category:AArch64_Assembly
+
+qemu-system-aarch64 -machine raspi3b -serial stdio -append "console=ttyS0" -kernel linux/arch/arm64/boot/Image -initrd test
 
 # https://kernel.googlesource.com/pub/scm/linux/kernel/git/mmarek/kbuild/+/lto/Documentation/lto-build
 

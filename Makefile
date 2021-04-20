@@ -9,8 +9,8 @@ program2:
 
 program:
 	mkdir -p d
-	as --64 -o /tmp/init.o init.S
-	ld -o d/init /tmp/init.o
+	aarch64-unknown-linux-gnu-as -o /tmp/init.o init.S
+	aarch64-unknown-linux-gnu-ld -o d/init /tmp/init.o
 	cd d && find . | cpio -o -H newc | gzip > ../rootfs.cpio.gz
 	ROOTFS_PATH="$(pwd)/rootfs.cpio.gz"
 
