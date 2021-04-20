@@ -1,3 +1,15 @@
+
+nix develop .#devShell.test
+
+# AARCH64
+
+git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+cd linux
+make ARCH=arm64 defconfig
+make gconfig
+pkg-config --list-all
+
+
 https://stackoverflow.com/questions/35245247/writing-my-own-init-executable
 https://stackoverflow.com/questions/10437995/initramfs-built-into-custom-linux-kernel-is-not-running
 
