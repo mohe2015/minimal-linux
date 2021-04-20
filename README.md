@@ -7,8 +7,11 @@ git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
 cd linux
 make ARCH=arm64 CROSS_COMPILE=aarch64-unknown-linux-gnu- tinyconfig #defconfig # only first time
 make ARCH=arm64 CROSS_COMPILE=aarch64-unknown-linux-gnu- gconfig
-make ARCH=arm64 CROSS_COMPILE=aarch64-unknown-linux-gnu-
+make ARCH=arm64 CROSS_COMPILE=aarch64-unknown-linux-gnu- menuconfig
+make ARCH=arm64 CROSS_COMPILE=aarch64-unknown-linux-gnu- -j16
+ls -lh arch/arm64/boot/Image
 
+# https://kernel.googlesource.com/pub/scm/linux/kernel/git/mmarek/kbuild/+/lto/Documentation/lto-build
 
 https://stackoverflow.com/questions/35245247/writing-my-own-init-executable
 https://stackoverflow.com/questions/10437995/initramfs-built-into-custom-linux-kernel-is-not-running

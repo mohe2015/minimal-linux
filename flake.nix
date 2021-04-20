@@ -30,8 +30,8 @@
       };
     in {
       test = crossPkgs.mkShell {
-        nativeBuildInputs = [ pkgs.gcc pkgs.pkg-config pkgs.flex pkgs.bison ];
-        buildInputs = [ pkgs.gtk2 pkgs.gnome2.libglade ];
+        nativeBuildInputs = [ pkgs.gcc pkgs.pkg-config pkgs.flex pkgs.bison pkgs.bc ];
+        buildInputs = [ pkgs.gtk2 pkgs.gnome2.libglade pkgs.ncurses ];
 
         shellHook = ''
           cd linux
