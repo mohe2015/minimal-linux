@@ -18,4 +18,4 @@ kernel:
 	cd linux && make ARCH=arm64 CROSS_COMPILE=aarch64-unknown-linux-gnu- -j16
 
 boot:
-	qemu-system-aarch64 -M raspi3b -kernel linux/arch/arm64/boot/Image -dtb linux/arch/arm64/boot/dts/broadcom/bcm2837-rpi-3-b.dtb -append console=ttyAMA0 -nographic -initrd rootfs.cpio.gz
+	qemu-system-aarch64 -M raspi3b -m 1024 -kernel linux/arch/arm64/boot/Image -dtb linux/arch/arm64/boot/dts/broadcom/bcm2837-rpi-3-b.dtb -append console=ttyAMA0 -nographic -initrd rootfs.cpio.gz
