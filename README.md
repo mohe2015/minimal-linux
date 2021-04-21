@@ -3,9 +3,9 @@ nix develop .#devShell.test
 
 # AARCH64
 
-#make ARCH=arm64 CROSS_COMPILE=aarch64-unknown-linux-gnu- tinyconfig #defconfig # only first time
-#make ARCH=arm64 CROSS_COMPILE=aarch64-unknown-linux-gnu- gconfig
-#make ARCH=arm64 CROSS_COMPILE=aarch64-unknown-linux-gnu- menuconfig
+make ARCH=arm64 CROSS_COMPILE=aarch64-unknown-linux-gnu- tinyconfig #defconfig # only first time
+make ARCH=arm64 CROSS_COMPILE=aarch64-unknown-linux-gnu- gconfig
+make ARCH=arm64 CROSS_COMPILE=aarch64-unknown-linux-gnu- menuconfig
 
 https://rosettacode.org/wiki/Category:AArch64_Assembly
 
