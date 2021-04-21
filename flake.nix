@@ -34,7 +34,6 @@
         buildInputs = [ pkgs.gtk2 pkgs.gnome2.libglade pkgs.ncurses pkgs.openssl ];
 
         shellHook = ''
-          cd linux
         '';
       };
     };
