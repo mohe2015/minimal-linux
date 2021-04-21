@@ -22,7 +22,24 @@ TODO
 CONFIG_INITRAMFS_SOURCE=../rootfs.cpio.gz
 
 
+SEEMS TO WORK:
+
+qemu-system-aarch64 -machine type=raspi3b -kernel linux/arch/arm64/boot/Image -append "earlyprintk=ttyAMA0,115200 loglevel=8 console=ttyAMA0,115200" -dtb linux/arch/arm64/boot/dts/broadcom/bcm2837-rpi-3-b.dtb -nographic
+
+
+
+
+
 qemu-system-aarch64 -D log -d cpu -machine type=raspi3b -serial stdio -kernel linux/arch/arm64/boot/Image -initrd rootfs.cpio.gz
+
+
+qemu-system-aarch64 -D log -d cpu -machine type=raspi3b -kernel /run/media/moritz/boot/kernel8.img     -append "rw earlyprintk=ttyAMA0,115200 loglevel=8 console=ttyAMA0,115200 root=PARTUUID=6c586e13-02 rootfstype=ext4 rootwait" -dtb /run/media/moritz/boot/bcm2710-rpi-3-b.dtb -m 1024     -drive id=hd-root,file=/home/moritz/Downloads/2020-08-20-raspios-buster-arm64.img,format=raw -serial mon:stdio     -nographic
+
+qemu-system-aarch64 -machine type=raspi3b -kernel /run/media/moritz/boot/kernel8.img -append "earlyprintk=ttyAMA0,115200 loglevel=8 console=ttyAMA0,115200" -dtb /run/media/moritz/boot/bcm2710-rpi-3-b.dtb -nographic
+
+nix shell nixpkgs#python39Packages.binwalk-full
+binwalk --extract /run/media/moritz/boot/kernel8.img
+
 
 # https://kernel.googlesource.com/pub/scm/linux/kernel/git/mmarek/kbuild/+/lto/Documentation/lto-build
 

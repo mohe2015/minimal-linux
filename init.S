@@ -17,6 +17,6 @@ _start:
 	mov x0, #5 // test set to #0
 	mov x8, #SVC_EXIT
 	svc #0 // exit(0);
- 
+
 msg:	.ascii "Hello World!\n"
 .align 4
